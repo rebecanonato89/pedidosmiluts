@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const CheckBox = (initialValue: string[]) => {
+const useCheckBox = (initialValue: string[]) => {
   const [selected, setSelected] = useState<string[]>(initialValue);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,3 +23,5 @@ export const CheckBox = (initialValue: string[]) => {
 
   return { selected, isSelected, onChange, cleanSelected };
 };
+
+export default useCheckBox;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import useForm from '../../hooks/useForm';
+import useCheckBox from '../../hooks/useCheckBox';
 import ListComponents from '../ListComponents';
 import { complementsOption, productsOptions } from '../../data';
-import { CheckBox } from '../CheckBox';
 
 export interface listData {
     request: string,
@@ -12,7 +12,7 @@ export interface listData {
 function FormInsert() {
 
     const [list, setList] = useState<Array<listData>>([]);
-    const { selected, isSelected, onChange, cleanSelected } = CheckBox([]);
+    const { selected, isSelected, onChange, cleanSelected } = useCheckBox([]);
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
 

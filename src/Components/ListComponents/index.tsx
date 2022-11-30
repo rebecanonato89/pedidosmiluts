@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { complementsOption, productsOptions } from '../../data';
 interface Data {
     name: string,
