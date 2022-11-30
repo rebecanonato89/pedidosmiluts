@@ -1,6 +1,6 @@
-import Button from '../../components/Button';
 import { complementsOption, productsOptions } from '../../data';
 import { Container, Content, List } from './styles';
+import Button from '../../Components/Button';
 
 interface Data {
     name: string,

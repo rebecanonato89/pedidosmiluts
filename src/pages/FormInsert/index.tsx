@@ -5,7 +5,7 @@ import ListComponents from '../ListComponents';
 import { complementsOption, productsOptions } from '../../data';
 
 import { Container, Content, Background, AnimationContainer, Input, Select, CheckBox } from './styles';
-import Button from '../../components/Button';
+import Button from '../../Components/Button';
 
 export interface listData {
     request: string,

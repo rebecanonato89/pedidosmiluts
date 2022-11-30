@@ -1,6 +1,6 @@
 import GlobalStyle from './styles/global';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { Header } from './Components/Header';
+import { Footer } from './Components/Footer';
 import FormInsert from './pages/FormInsert';
 
 
