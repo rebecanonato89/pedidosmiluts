@@ -26,9 +26,6 @@ interface Product {
 }
 
 const ListComponents: React.FC<Data> = (props) => {
-    const [priceRequest, setPriceRequest] = useState(0);
-    const [totalPrice, setTotalPrice] = useState(0);
-
     const requests = props.list.map(obj => {
         let newObj: Product = {} as Product;
 
@@ -48,6 +45,12 @@ const ListComponents: React.FC<Data> = (props) => {
 
         return newObj
     });
+
+    const totalPrice = requests.map((item, index) => {
+        const sum = item.complements.reduce((partialSum, a) => partialSum + a.price, 0);
+        return sum + item.price;
+    }
+    ).reduce((partialSum, a) => partialSum + a, 0);
 
 
     const handlePrint = () => {
@@ -95,7 +98,7 @@ const ListComponents: React.FC<Data> = (props) => {
                     )
                 })
             }
-
+            <strong>VALOR TOTAL: {totalPrice}</strong>
 
             <button id="btn" onClick={handlePrint}>Clique para imprimir</button>
         </div>
