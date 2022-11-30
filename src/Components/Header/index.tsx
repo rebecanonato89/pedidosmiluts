@@ -1,12 +1,22 @@
-import React from "react";
+import { Container, Avatar, Content } from "./styles";
+import logo from '../../assets/logo.jpeg';
+
+
 
 export const Header = (props: any) => (
-  <div className="row">
-    <div className="col-md-8">
-      <h5>Todo List</h5>
-    </div>
-    <div className="col-md-4">
-      {props.children}
-    </div>
-  </div>
+  <Container>
+    <header>
+      <h1>
+        Pedidos Milú
+      </h1>
+    </header>
+    <Content>
+      <Avatar>
+        <img
+          src={logo}
+          alt="Geladim Milú Logo"
+        />
+      </Avatar>
+    </Content>
+  </Container>
 );
