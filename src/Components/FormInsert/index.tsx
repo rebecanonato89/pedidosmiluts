@@ -1,39 +1,34 @@
 import React, { useState } from 'react';
 import useForm from '../../hooks/useForm';
 import ListComponents from '../ListComponents';
-import { complements, productsOptions } from '../../data';
+import { complementsOption, productsOptions } from '../../data';
 import { CheckBox } from '../CheckBox';
 
 export interface listData {
-    name: string,
-    address: string,
     request: string,
-    complements: string,
-    //packages: [];
+    complements: Array<string>
 }
 
 function FormInsert() {
 
-    const [list, setList] = useState<listData[]>([]);
-    const { selected, isSelected, onChange } = CheckBox([]);
+    const [list, setList] = useState<Array<listData>>([]);
+    const { selected, isSelected, onChange, cleanSelected } = CheckBox([]);
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
 
 
     const [input, handleChange, setInput] = useForm({
-        name: '',
-        address: '',
-        request: '',
+        request: '1',
         complements: ''
     });
 
     function handleSubmit(e: React.ChangeEvent<HTMLInputElement>) {
         e.preventDefault();
-        console.log("handleSubmit", selected);
         input.complements = selected;
         setList([...list, input]);
-        setInput({ name: '', address: '', request: '', complements: '' })
+        setInput({ request: '1', complements: '' });
+        cleanSelected();        
     }
-
-
 
     return (
         <>
@@ -43,28 +38,32 @@ function FormInsert() {
             <body className="p-3 m-0 border-0 bd-example">
 
                 <form onSubmit={(e: any) => handleSubmit(e)} target="_blank">
+
                     <input
                         name="name"
                         placeholder='name'
-                        onChange={handleChange}
+                        onChange={(e) => setName(e.target.value)}
                         value={input.name}
                     >
                     </input>
+
                     <input
                         name="address"
                         placeholder='address'
-                        onChange={handleChange}
+                        onChange={(e) => setAddress(e.target.value)}
                         value={input.address}
                     >
                     </input>
+
                     <label htmlFor="cars">Choose a car:</label>
                     <select name="request" value={input.request} onChange={handleChange}>
                         {productsOptions.map((item, index) => (
                             <option value={item.value}>{item.label}</option>
                         ))}
                     </select>
+
                     <ul style={{ listStyleType: "none" }}>
-                        {complements.map((i) => (
+                        {complementsOption.map((i) => (
                             <li key={i.value}>
                                 <input
                                     id={i.value}
@@ -77,6 +76,7 @@ function FormInsert() {
                             </li>
                         ))}
                     </ul>
+
                     <button>add</button>
                 </form>
 
@@ -84,14 +84,7 @@ function FormInsert() {
                     <>
                         <h1>Pedido</h1>
                         <div>
-                            {list.map((itemDeBox, index) => {
-                                return <ListComponents key={index} index={index}
-                                    name={itemDeBox.name}
-                                    address={itemDeBox.address}
-                                    request={itemDeBox.request}
-                                    complements={itemDeBox.complements}
-                                />
-                            })}
+                            <ListComponents list={list} name={name} address={address} />
                         </div>
                     </>
                 }

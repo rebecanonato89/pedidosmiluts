@@ -17,5 +17,9 @@ export const CheckBox = (initialValue: string[]) => {
     return selected.includes(value);
   };
 
-  return { selected, isSelected, onChange };
+  const cleanSelected = () =>{
+    return setSelected([]);
+  }
+
+  return { selected, isSelected, onChange, cleanSelected };
 };

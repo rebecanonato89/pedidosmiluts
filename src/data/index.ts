@@ -44,7 +44,7 @@ export const productsOptions: readonly productOption[] = [
 //   { value: "4", label: "AÇAí - 700" },
 // ];
 
-export const complements = [
+export const complementsOption = [
   { value: "1", label: "AMENDOIM GRANULADO	", price: 3.0 },
   { value: "2", label: "BANANA	", price: 3.0 },
   { value: "3", label: "GOTA DE CHOCOLATE	", price: 3.0 },
