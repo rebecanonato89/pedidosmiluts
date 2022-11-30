@@ -1,7 +1,8 @@
 import GlobalStyle from './styles/global';
-import Footer from './components/Footer';
-import FormInsert from './pages/FormInsert';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import FormInsert from './pages/FormInsert';
+
 
 
 function App() {
