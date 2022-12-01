@@ -16,6 +16,7 @@ export const Container = styled.button<ContainerProps>`
   max-width: 500px;
   font-weight: 500;
   margin-top: 16px;
+  margin-bottom: 50px;
   transition: background-color 0.3s;
   &:hover {
     background: ${shade(0.2, '#ff9000')};

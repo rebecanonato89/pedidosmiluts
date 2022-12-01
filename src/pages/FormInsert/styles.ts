@@ -27,12 +27,12 @@ export const Content = styled.div`
 
 export const Input = styled.div`
   input {
-    background: #232129;
+    background: #dedae8;
     border-radius: 10px;
     padding: 16px;
     width: 100%;
 
-    border: 2px solid #232129;
+    border: 0.5px solid #232129;
     color: #666360;
 
     align-items: center;
@@ -48,12 +48,12 @@ export const Input = styled.div`
 
 export const Select = styled.div`
   select {
-    background: #232129;
+    background: #dedae8;
     border-radius: 10px;
     padding: 16px;
     width: 100%;
 
-    border: 2px solid #232129;
+    border: 0.5px solid #232129;
     color: #666360;
 
     align-items: center;
@@ -68,7 +68,7 @@ export const Select = styled.div`
 `;
 
 export const CheckBox = styled.div`
-  font-size: 18px;
+  font-size: 20px;
   margin: 14px;
   padding-top: 15px;
   color: #737380;
@@ -84,6 +84,13 @@ export const CheckBox = styled.div`
 
   ul li {
     position: relative;
+  }
+
+  .input-group ul li input {
+    background: #dedae8;
+    border-radius: 10px;
+    border: 1px solid #232129;
+    color: #666360;
   }
 `;
 

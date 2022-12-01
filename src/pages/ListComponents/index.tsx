@@ -4,7 +4,9 @@ import Button from '../../Components/Button';
 
 interface Data {
     name: string,
+    phone: string,
     address: string,
+    payment: string,
     list: Array<{
         request: string,
         complements: Array<string>
@@ -85,7 +87,9 @@ const ListComponents: React.FC<Data> = (props) => {
                     <p>{date}</p>
                     <h1>Dados do Cliente</h1>
                     <p><b>Nome:</b> {props.name}</p>
+                    <p><b>Telefone:</b> {props.phone}</p>
                     <p><b>Endereço:</b> {props.address}</p>
+                    <p><b>Forma de Pagamento:</b> {props.payment}</p>
                     <hr />
                 </div>
                 <List>

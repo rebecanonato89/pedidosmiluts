@@ -17,7 +17,9 @@ function FormInsert() {
     const [list, setList] = useState<Array<listData>>([]);
     const { selected, isSelected, onChange, cleanSelected } = useCheckBox([]);
     const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
+    const [payment, setPayment] = useState('');
 
 
     const [input, handleChange, setInput] = useForm({
@@ -51,12 +53,29 @@ function FormInsert() {
                             </input>
 
                             <input
+                                name="phone"
+                                placeholder='telefone'
+                                onChange={(e) => setPhone(e.target.value)}
+                                value={input.phone}
+                            >
+                            </input>
+
+                            <input
                                 name="address"
                                 placeholder='endereço'
                                 onChange={(e) => setAddress(e.target.value)}
                                 value={input.address}
                             >
                             </input>
+
+                            <input
+                                name="payment"
+                                placeholder='forma de pagamento'
+                                onChange={(e) => setPayment(e.target.value)}
+                                value={input.payment}
+                            >
+                            </input>
+
                         </Input>
 
                         <Select>
@@ -102,7 +121,7 @@ function FormInsert() {
                     <div className='aviso'>Nenhum pedido realizado no momento!</div>
                 }
                 {list.length > 0 &&
-                    <ListComponents list={list} name={name} address={address} />
+                    <ListComponents list={list} name={name} phone={phone} address={address} payment={payment} />
                 }
             </Background>
 
