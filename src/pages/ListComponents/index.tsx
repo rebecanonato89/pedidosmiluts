@@ -26,7 +26,7 @@ interface Product {
     tam: number;
     price: number;
     complements: Array<Complements>
-
+    isPromotion: boolean
 }
 
 const ListComponents: React.FC<Data> = (props) => {
@@ -54,8 +54,12 @@ const ListComponents: React.FC<Data> = (props) => {
     });
 
     const totalPrice = requests.map((item, index) => {
-        const sum = item.complements.reduce((partialSum, a) => partialSum + a.price, 0);
-        return sum + item.price;
+        if (!item.isPromotion) {
+            const sum = item.complements.reduce((partialSum, a) => partialSum + a.price, 0);
+            return sum + item.price;
+        } else {
+            return item.price;
+        }
     }
     ).reduce((partialSum, a) => partialSum + a, 0);
 
@@ -115,14 +119,24 @@ const ListComponents: React.FC<Data> = (props) => {
                                             <div key={index} className='complement'>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <strong> {comp.label} </strong>&nbsp;&nbsp;&nbsp;
-                                                <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(comp.price)}</i>
+                                                {!item.isPromotion &&
+                                                    <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(comp.price)}</i>
+                                                }
+                                                {item.isPromotion &&
+                                                    <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(0)}</i>
+                                                }
                                             </div>
                                         ))
                                     }
                                     <div className='valueRequest'>
                                         <br />
                                         <strong>VALOR PEDIDO:</strong>&nbsp;&nbsp;&nbsp;
-                                        <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sum + item.price)}</i>
+                                        {!item.isPromotion &&
+                                            <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(sum + item.price)}</i>
+                                        }
+                                        {item.isPromotion &&
+                                            <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</i>
+                                        }
                                     </div>
                                     <hr className='trace'></hr>
                                 </div>
