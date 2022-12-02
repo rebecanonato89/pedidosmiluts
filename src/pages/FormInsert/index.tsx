@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useForm from '../../hooks/useForm';
 import useCheckBox from '../../hooks/useCheckBox';
 import ListComponents from '../ListComponents';
-import { complementsOption, productsOptions } from '../../data';
+import { complementsOption, complementsPromotion, productsOptions } from '../../data';
 
 import { Container, Content, Background, AnimationContainer, Input, Select, CheckBox } from './styles';
 import Button from '../../Components/Button';
@@ -83,7 +83,7 @@ function FormInsert() {
                             <div className='label'>Escolha o produto:</div>
                             <select name="request" value={input.request} onChange={handleChange}>
                                 {productsOptions.map((item, index) => (
-                                    <option value={item.value}>{item.label}</option>
+                                    <option key={index} value={item.value}>{item.label}</option>
                                 ))}
                             </select>
                         </Select>
@@ -100,6 +100,7 @@ function FormInsert() {
                                                 value={i.value}
                                                 checked={isSelected(i.value)}
                                                 onChange={onChange}
+                                                disabled={complementsPromotion.includes(input.request) && !i.isPromotion}
                                             />
                                             <label htmlFor={i.value}>&nbsp;{i.label}</label>
                                         </li>

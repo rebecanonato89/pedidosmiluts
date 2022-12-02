@@ -97,7 +97,7 @@ const ListComponents: React.FC<Data> = (props) => {
                         requests.map((item, index) => {
                             let sum = item.complements.reduce((partialSum, a) => partialSum + a.price, 0);
                             return (
-                                <div id="box">
+                                <div key={index} id="box">
                                     <div className='request'>
                                         <strong>{item.description}</strong>&nbsp;&nbsp;&nbsp;
                                         <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}</i>
@@ -112,7 +112,7 @@ const ListComponents: React.FC<Data> = (props) => {
                                     {
                                         item.complements.map((comp, index) =>
                                         (
-                                            <div className='complement'>
+                                            <div key={index} className='complement'>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <strong> {comp.label} </strong>&nbsp;&nbsp;&nbsp;
                                                 <i>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(comp.price)}</i>
