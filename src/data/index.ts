@@ -93,11 +93,15 @@ export const complementsOption = [
   { value: "9", label: "bombom ouro branco", price: 3.5, isPromotion: false },
   { value: "10", label: "bombom sonho de valsa", price: 3.5, isPromotion: false },
   { value: "11", label: "doce de leite", price: 3.5, isPromotion: false },
-  { value: "12", label: "leite condensado", price: 3.5, isPromotion: false },
+  { value: "12", label: "leite condensado", price: 3.5, isPromotion: true },
   { value: "13", label: "leite em pó", price: 3.5, isPromotion: true },
   { value: "14", label: "ovomaltine pó", price: 3.5, isPromotion: false },
   { value: "15", label: "polpa de morango", price: 4.5, isPromotion: false },
   { value: "16", label: "bão com força! (avelã)", price: 5.0, isPromotion: false },
   { value: "17", label: "de lamber os beiço (ninho)", price: 5.0, isPromotion: false },
   { value: "18", label: "ovomaltine crocante", price: 5.0, isPromotion: false },
+
+  { value: "19", label: "cobertura de chocolate", price: 2.0, isPromotion: true },
+  { value: "20", label: "cobertura de morango", price: 2.0, isPromotion: true },
+  { value: "21", label: "cobertura de caramelo", price: 2.0, isPromotion: true },
 ];
